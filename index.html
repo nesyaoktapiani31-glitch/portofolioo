@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Nesya</title>
+
+<style>
+/* ===== PENGATURAN DASAR ===== */
+:root {
+    --krem: #f7f5ef;
+    --putih: #fffefa;
+    --hijau: #253d32;
+    --hijau-muda: #dce5d9;
+    --cokelat: #c96f49;
+    --teks: #292c27;
+    --abu: #77786f;
+    --garis: #deded5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--krem);
+    color: var(--teks);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bagian {
+    padding: 100px 9%;
+}
+
+.label {
+    color: var(--abu);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+h1, h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    line-height: 1.15;
+}
+
+h2 {
+    font-size: clamp(38px, 5vw, 60px);
+}
+
+h1 span, h2 span {
+    color: var(--cokelat);
+}
+
+/* ===== NAVIGASI ===== */
+.navbar {
+    min-height: 80px;
+    padding: 20px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--garis);
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--cokelat);
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar nav a {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.navbar nav a:hover {
+    color: var(--cokelat);
+}
+
+.navbar .tombol-menu {
+    padding: 12px 18px;
+    background: var(--hijau);
+    color: white;
+}
+
+/* ===== BERANDA ===== */
+.beranda {
+    min-height: 610px;
+    padding: 100px 9%;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.beranda h1 {
+    margin: 25px 0;
+    font-size: clamp(45px, 6vw, 75px);
+}
+
+.deskripsi {
+    max-width: 480px;
+    color: var(--abu);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.tombol-grup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.tombol-utama, .tombol-kedua {
+    display: inline-block;
+    padding: 13px 20px;
+    border: 1px solid var(--hijau);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tombol-utama {
+    background: var(--hijau);
+    color: white;
+}
+
+.tombol-kedua {
+    color: var(--hijau);
+}
+
+.tombol-utama:hover {
+    background: var(--cokelat);
+    border-color: var(--cokelat);
+}
+
+.tombol-kedua:hover {
+    background: var(--hijau-muda);
+}
+
+.catatan {
+    margin-top: 45px;
+    color: var(--abu);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+/* ===== ILUSTRASI DEKORATIF ===== */
+.kartu-dekorasi {
+    min-height: 400px;
+    padding: 20px;
+    background: var(--hijau);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dekorasi-atas, .dekorasi-bawah {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.gambar-abstrak {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background: #e8e5d9;
+    color: var(--hijau);
+}
+
+.lingkaran {
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background: #d27b53;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.persegi {
+    position: absolute;
+    width: 125px;
+    height: 180px;
+    background: #b5c5ad;
+    top: 70px;
+    left: calc(50% - 62px);
+    border: 1px solid var(--hijau);
+}
+
+.huruf {
+    position: absolute;
+    top: 65px;
+    left: 25px;
+    font-family: Georgia, serif;
+    font-size: 100px;
+    color: white;
+}
+
+.teks-dekorasi {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ===== PEMBATAS ===== */
+.pembatas {
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: var(--hijau);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* ===== TENTANG SAYA ===== */
+.tentang {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 90px;
+    border-bottom: 1px solid var(--garis);
+}
+
+.judul-bagian h2 {
+    margin-top: 20px;
+}
+
+.isi-tentang {
+    padding-top: 20px;
+}
+
+.isi-tentang h3 {
+    margin-bottom: 25px;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.isi-tentang p {
+    margin-bottom: 18px;
+    color: var(--abu);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.tautan {
+    display: inline-block;
+    margin-top: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--cokelat);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ===== KEAHLIAN ===== */
+.keahlian {
+    background: var(--putih);
+}
+
+.daftar-keahlian {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.kartu-keahlian {
+    position: relative;
+    min-height: 290px;
+    padding: 28px 23px;
+    border: 1px solid var(--garis);
+    background: var(--krem);
+}
+
+.nomor {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: #99998f;
+    font-size: 11px;
+}
+
+.ikon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 25px;
+    display: grid;
+    place-items: center;
+    background: var(--hijau-muda);
+    color: var(--hijau);
+    font-size: 24px;
+}
+
+.kartu-keahlian h3 {
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.kartu-keahlian p {
+    color: var(--abu);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.daftar-tag {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 20px;
+}
+
+.daftar-tag span {
+    padding: 4px 9px;
+    border: 1px solid var(--garis);
+    font-size: 9px;
+}
+
+/* ===== PROYEK ===== */
+.judul-proyek {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 35px;
+    margin-bottom: 45px;
+}
+
+.pengantar-proyek {
+    max-width: 300px;
+    color: var(--abu);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.daftar-proyek {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 25px;
+}
+
+.kartu-proyek {
+    border: 1px solid var(--garis);
+    background: var(--putih);
+}
+
+.sampul {
+    position: relative;
+    min-height: 280px;
+    padding: 22px;
+    overflow: hidden;
+}
+
+.sampul-satu {
+    background: #dce6d8;
+    color: var(--hijau);
+}
+
+.sampul-dua {
+    background: #eee0ce;
+    color: #493d30;
+}
+
+.sampul-tiga {
+    background: #e5dce8;
+    color: #44374d;
+}
+
+.label-sampul {
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.ilustrasi-edukasi, .ilustrasi-produk,
+.ilustrasi-desain {
+    position: absolute;
+    inset: 60px 25px 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ilustrasi-edukasi strong {
+    font-family: Georgia, serif;
+    font-size: clamp(55px, 7vw, 85px);
+}
+
+.ilustrasi-edukasi span,
+.ilustrasi-edukasi small,
+.ilustrasi-produk span,
+.ilustrasi-desain span {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.ilustrasi-produk strong,
+.ilustrasi-desain strong {
+    margin: 15px 0;
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 4vw, 55px);
+    line-height: 1.2;
+}
+
+.ilustrasi-produk small {
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.kotak-warna {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.kotak-warna span {
+    width: 50px;
+    height: 12px;
+    background: #b5a3c1;
+}
+
+.kotak-warna span:nth-child(2) {
+    background: #44374d;
+}
+
+.kotak-warna span:nth-child(3) {
+    background: #d5a57e;
+}
+
+.info-proyek {
+    padding: 23px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.kategori {
+    color: var(--cokelat);
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.info-proyek h3 {
+    margin: 9px 0;
+    font-size: 17px;
+}
+
+.info-proyek p:not(.kategori) {
+    color: var(--abu);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.panah {
+    font-size: 22px;
+}
+
+.kaki-proyek {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-top: 1px solid var(--garis);
+    color: var(--abu);
+    font-size: 9px;
+}
+
+/* ===== KONTAK ===== */
+.kontak {
+    text-align: center;
+    background: var(--hijau);
+    color: white;
+}
+
+.kontak .label {
+    color: #c1cfc2;
+}
+
+.kontak h2 {
+    margin-top: 25px;
+    font-size: clamp(40px, 6vw, 65px);
+}
+
+.kontak h2 span {
+    color: #e7a27e;
+}
+
+.deskripsi-kontak {
+    max-width: 430px;
+    margin: 25px auto;
+    color: #d1d9d1;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.tombol-kontak {
+    display: inline-block;
+    padding: 14px 30px;
+    background: var(--krem);
+    color: var(--hijau);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.tombol-kontak:hover {
+    background: #e7a27e;
+}
+
+.detail-kontak {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 75px;
+    padding-top: 30px;
+    border-top: 1px solid #506558;
+    text-align: left;
+}
+
+.detail-kontak span {
+    color: #c1cfc2;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.detail-kontak p {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+/* ===== BAGIAN BAWAH ===== */
+.footer {
+    padding: 30px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer p, .kembali-atas {
+    color: var(--abu);
+    font-size: 10px;
+}
+
+.kembali-atas {
+    font-weight: bold;
+}
+
+/* ===== TAMPILAN TABLET ===== */
+@media (max-width: 850px) {
+    .bagian {
+        padding: 75px 6%;
+    }
+
+    .navbar {
+        padding: 20px 6%;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .navbar nav {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .beranda {
+        grid-template-columns: 1fr;
+        padding: 75px 6%;
+        gap: 40px;
+    }
+
+    .kartu-dekorasi {
+        width: 100%;
+        max-width: 550px;
+        margin: auto;
+    }
+
+    .tentang {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .daftar-keahlian {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .judul-proyek {
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
+/* ===== TAMPILAN HP ===== */
+@media (max-width: 560px) {
+    .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .navbar nav {
+        gap: 12px 16px;
+    }
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+    .beranda h1 {
+        font-size: 45px;
+    }
+
+    .kartu-dekorasi {
+        min-height: 350px;
+    }
+
+    .gambar-abstrak {
+        height: 240px;
+    }
+
+    .daftar-keahlian,
+    .daftar-proyek,
+    .detail-kontak {
+        grid-template-columns: 1fr;
+    }
+
+    .pembatas {
+        justify-content: center;
+        font-size: 9px;
+    }
+
+    .sampul {
+        min-height: 250px;
+    }
+
+    .detail-kontak {
+        text-align: center;
+        gap: 25px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<header class="navbar">
+    <a href="#beranda" class="logo">nesya<span>.</span></a>
+
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#tentang">Tentang Saya</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#proyek">Proyek</a>
+        <a href="#kontak" class="tombol-menu">Kontak ↗</a>
+    </nav>
+</header>
+
+<!-- BERANDA -->
+<section class="beranda" id="beranda">
+    <div>
+        <p class="label">PORTOFOLIO MAHASISWA INFORMATIKA</p>
+
+        <h1>Halo, saya<br><span>Nesya Oktapiani.</span></h1>
+
+        <p class="deskripsi">
+            Saya mahasiswa Informatika yang tertarik pada pengembangan
+            website, desain antarmuka, dan teknologi. Saya senang
+            mempelajari hal baru serta membuat karya yang bermanfaat.
+        </p>
+
+        <div class="tombol-grup">
+            <a href="#proyek" class="tombol-utama">Lihat Proyek Saya ↓</a>
+            <a href="#tentang" class="tombol-kedua">Kenali Saya</a>
+        </div>
+
+        <p class="catatan">INDONESIA · KREATIF · TERUS BELAJAR</p>
+    </div>
+
+    <div class="kartu-dekorasi">
+        <div class="dekorasi-atas">
+            <span>01 / PERKENALAN</span>
+            <span>✳</span>
+        </div>
+
+        <div class="gambar-abstrak">
+            <div class="lingkaran"></div>
+            <div class="persegi"></div>
+            <span class="huruf">N.</span>
+            <span class="teks-dekorasi">BERKARYA<br>DENGAN IDE</span>
+        </div>
+<div class="area-foto">
+                <div class="kartu-foto">
+
+                    <div class="foto-profil">
+                        <img
+                            src="WhatsApp Image 2026-10-17 at 08.57.05.jpeg"
+                            alt="Foto profil Nesya Oktapiani"
+                        >
+                    </div>
+        <div class="dekorasi-bawah">
+            <span>PORTOFOLIO PRIBADI</span>
+            <span>2026</span>
+        </div>
+    </div>
+</section>
+
+<!-- PEMBATAS -->
+<div class="pembatas">
+    <span>PENGEMBANGAN WEB</span>
+    <span>✳</span>
+    <span>DESAIN ANTARMUKA</span>
+    <span>✳</span>
+    <span>IDE KREATIF</span>
+</div>
+
+<!-- TENTANG SAYA -->
+<section class="bagian tentang" id="tentang">
+    <div class="judul-bagian">
+        <p class="label">01 — PERKENALAN</p>
+        <h2>Sedikit cerita<br>tentang <span>saya.</span></h2>
+    </div>
+
+    <div class="isi-tentang">
+        <h3>Setiap ide hebat dimulai dari keberanian untuk mempelajari sesuatu yang baru.</h3>
+
+        <p>
+            Halo! Saya Nesya Oktapiani Pali, mahasiswa Program Studi
+            Informatika. Saya sedang belajar mengembangkan website,
+            merancang tampilan aplikasi, dan memahami bagaimana
+            teknologi dapat membantu kehidupan sehari-hari.
+        </p>
+
+        <p>
+            Bagi saya, belajar bukan hanya tentang menulis kode,
+            tetapi juga tentang mencoba, memperbaiki kesalahan,
+            dan menghasilkan karya yang dapat digunakan orang lain.
+        </p>
+
+        <a href="#kontak" class="tautan">Mari terhubung dengan saya ↗</a>
+    </div>
+</section>
+
+<!-- KEAHLIAN -->
+<section class="bagian keahlian" id="keahlian">
+    <div class="judul-bagian">
+        <p class="label">02 — KEMAMPUAN SAYA</p>
+        <h2>Hal yang sedang<br><span>saya pelajari.</span></h2>
+    </div>
+
+    <div class="daftar-keahlian">
+        <article class="kartu-keahlian">
+            <span class="nomor">01</span>
+            <div class="ikon">⌘</div>
+            <h3>Pengembangan Website</h3>
+            <p>Mempelajari cara membuat halaman website yang menarik, terstruktur, dan mudah digunakan.</p>
+            <div class="daftar-tag">
+                <span>HTML</span><span>CSS</span><span>Laravel</span>
+            </div>
+        </article>
+
+        <article class="kartu-keahlian">
+            <span class="nomor">02</span>
+            <div class="ikon">◇</div>
+            <h3>Desain Antarmuka</h3>
+            <p>Merancang tampilan aplikasi dengan memperhatikan warna, tata letak, dan kenyamanan pengguna.</p>
+            <div class="daftar-tag">
+                <span>Figma</span><span>Canva</span><span>UI/UX</span>
+            </div>
+        </article>
+
+        <article class="kartu-keahlian">
+            <span class="nomor">03</span>
+            <div class="ikon">✳</div>
+            <h3>Pemecahan Masalah</h3>
+            <p>Belajar menganalisis masalah, mencari solusi, dan mengembangkan ide menjadi sebuah proyek.</p>
+            <div class="daftar-tag">
+                <span>Analisis</span><span>Logika</span>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- PROYEK -->
+<section class="bagian proyek" id="proyek">
+    <div class="judul-proyek">
+        <div class="judul-bagian">
+            <p class="label">03 — HASIL KARYA</p>
+            <h2>Proyek dan<br><span>pengalaman.</span></h2>
+        </div>
+
+        <p class="pengantar-proyek">
+            Berikut beberapa proyek latihan yang saya kerjakan selama
+            mempelajari bidang Informatika.
+        </p>
+    </div>
+
+    <div class="daftar-proyek">
+        <article class="kartu-proyek">
+            <div class="sampul sampul-satu">
+                <span class="label-sampul">01 / PENDIDIKAN</span>
+                <div class="ilustrasi-edukasi">
+                    <span>AYO BELAJAR!</span>
+                    <strong>A B C</strong>
+                    <small>BELAJAR · BERMAIN · BERKEMBANG</small>
+                </div>
+            </div>
+
+            <div class="info-proyek">
+                <div>
+                    <p class="kategori">PENGEMBANGAN WEBSITE</p>
+                    <h3>EduKids — Website Edukasi Anak</h3>
+                    <p>Website edukasi untuk membantu anak mengenal huruf, angka, warna, dan hewan.</p>
+                </div>
+                <span class="panah">↗</span>
+            </div>
+
+            <div class="kaki-proyek">
+                <span>HTML / CSS / JavaScript</span>
+                <span>Website Pendidikan</span>
+            </div>
+        </article>
+
+        <article class="kartu-proyek">
+            <div class="sampul sampul-dua">
+                <span class="label-sampul">02 / APLIKASI WEB</span>
+                <div class="ilustrasi-produk">
+                    <span>PENGELOLAAN USAHA</span>
+                    <strong>Kelola Data<br>dengan Mudah.</strong>
+                    <small>APLIKASI WEB</small>
+                </div>
+            </div>
+
+            <div class="info-proyek">
+                <div>
+                    <p class="kategori">PROYEK LARAVEL</p>
+                    <h3>Sistem Pengelolaan Produk</h3>
+                    <p>Aplikasi untuk menambah, melihat, mengubah, dan menghapus data produk.</p>
+                </div>
+                <span class="panah">↗</span>
+            </div>
+
+            <div class="kaki-proyek">
+                <span>Laravel / PHP / MySQL</span>
+                <span>Aplikasi CRUD</span>
+            </div>
+        </article>
+
+        <article class="kartu-proyek">
+            <div class="sampul sampul-tiga">
+                <span class="label-sampul">03 / DESAIN APLIKASI</span>
+                <div class="ilustrasi-desain">
+                    <span>RANCANG IDENYA.</span>
+                    <strong>Desain yang<br>lebih baik.</strong>
+                    <div class="kotak-warna">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-proyek">
+                <div>
+                    <p class="kategori">DESAIN UI/UX</p>
+                    <h3>Rancangan Antarmuka Aplikasi</h3>
+                    <p>Rancangan tampilan aplikasi dengan memperhatikan susunan menu, warna, dan kemudahan penggunaan.</p>
+                </div>
+                <span class="panah">↗</span>
+            </div>
+
+            <div class="kaki-proyek">
+                <span>Figma / Desain UI</span>
+                <span>Konsep Antarmuka</span>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- KONTAK -->
+<section class="bagian kontak" id="kontak">
+    <p class="label">04 — HUBUNGI SAYA</p>
+
+    <h2>Punya ide?<br>Mari kita <span>wujudkan.</span></h2>
+
+    <p class="deskripsi-kontak">
+        Saya senang belajar, bertukar ide, dan mengembangkan karya
+        bersama dalam proyek yang bermanfaat.
+    </p>
+
+    <a href="mailto:emailkamu@example.com" class="tombol-kontak">Kirim Email ↗</a>
+
+    <div class="detail-kontak">
+        <div>
+            <span>EMAIL</span>
+            <p>emailkamu@example.com</p>
+        </div>
+        <div>
+            <span>LOKASI</span>
+            <p>Indonesia</p>
+        </div>
+        <div>
+            <span>KEGIATAN</span>
+            <p>Belajar dan Berkarya</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <a href="#beranda" class="logo">nesya<span>.</span></a>
+    <p>Dibuat dengan semangat untuk terus belajar.</p>
+    <a href="#beranda" class="kembali-atas">KEMBALI KE ATAS ↑</a>
+    <p>© 2026 Nesya Oktapiani Pali</p>
+</footer>
+
+</body>
+</html>
